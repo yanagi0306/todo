@@ -1,0 +1,36 @@
+# イメージのビルドとコンテナ起動を同時に行う --buildは強制ビルドするオプション
+docker-compose up -d --build
+
+# 別々に行う場合
+# イメージのビルド
+docker-compose build
+
+# コンテナの起動 -dはバックグラウンドで行うオプション
+docker-compose up -d
+
+# コンテナに入る
+docker-compose exec web /bin/sh
+
+# VueのデフォルトApp作成
+/app # vue init webpack
+
+
+
+# inde.js のhostをlocalhot→0.0.0.0
+host: '0.0.0.0', // can be overwritten by process.env.HOST
+0.0.0.0にすることでコンテナのlocalhostにコンテナ外部からアクセスが可能
+# pollをfalse→true
+poll: true, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
+
+# pollをfalse→true
+poll: true, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
+pollをfalse→trueでファイルの変更を起動中に検知
+
+デフォルトAppの作成が終わったら、以下のコマンドでAppを起動
+
+# デフォルトAppの起動（コンテナに入った状態で実行）
+/app # npm run dev
+
+# デフォルトAppの起動（コンテナに入った状態で実行）
+/app # npm run dev
+localhost:8080にアクセスしてデフォルトの画面が表示されればOKです。
